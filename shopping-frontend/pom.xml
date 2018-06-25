@@ -18,6 +18,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+		<groupId>com.bs.ps</groupId>
+  <artifactId>shopping-backend</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>jstl</artifactId>
     <version>${jstl.version}</version>

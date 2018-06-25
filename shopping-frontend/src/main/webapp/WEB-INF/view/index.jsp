@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>OnlineShop- ${title}</title>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 <spring:url value="/resources/css" var="css"></spring:url>
 <spring:url value="/resources/fonts" var="fonts"></spring:url>
@@ -14,7 +14,9 @@
 <spring:url value="/resources/images" var="images"></spring:url>
 
  
-
+<script>
+window.title='${title}'
+</script>
     
 
     <!-- Bootstrap Core CSS -->
@@ -24,7 +26,6 @@
     <link href="${css}/shop-homepage.css" rel="stylesheet">
 </head>
 <body>
- 
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -40,19 +41,7 @@
                 <a class="navbar-brand" href="#">Start Bootstrap</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
+            <%@include file="common/navbar.jsp" %>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -71,6 +60,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>Copyright &copy; Your Website 2014</p>
+                    
+                   
                 </div>
             </div>
         </footer>
@@ -83,6 +74,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="${js}/bootstrap.min.js"></script>
+    <script src = "${js}/myapp.js"></script>
  
 
 </body>

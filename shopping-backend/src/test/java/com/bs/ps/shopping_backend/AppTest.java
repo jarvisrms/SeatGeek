@@ -1,38 +1,40 @@
 package com.bs.ps.shopping_backend;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.bs.ps.dao.CategoryDao;
+import com.bs.ps.dto.Category;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest 
-    extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+	
+	private static AnnotationConfigApplicationContext context;
+	
+	private static CategoryDao categoryDao;
+	
+	private Category category;
+	
+	
+@BeforeClass
+public static void init()
+{
+	context = new AnnotationConfigApplicationContext();
+	context.scan("com.bs.ps");
+	context.refresh();
+	categoryDao= (CategoryDao)context.getBean("categorydao");
+}
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+@Test
+public void test()
+{
+	assertEquals("success",3,categoryDao.getCategory().size());
+}
 }
